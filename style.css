@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    /*NEUTRAL*/
+    --neutral900: hsl(227, 75%, 14%);
+    --neutral800: hsl(226, 25%, 17%);
+    --neutral700: hsl(225, 23%, 24%);
+    --neutral600: hsl(226, 11%, 37%);
+    --neutral300: hsl(0, 0%, 78%);
+    --neutral200: hsl(217, 61%, 90%);
+    --neutral100: hsl(0, 0%, 93%);
+    --neutral0: hsl(200, 60%, 99%);
+
+    /*RED*/
+
+    --red400: hsl(3, 86%, 64%);
+    --red500: hsl(3, 71%, 56%);
+    --red700: hsl(3, 77%, 44%);
+
+    /*Gradient*/
+    --lightGradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --darkGradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+    /*LIGHT MODE*/
+
+    /*body*/
+    --bgLightMode: var(--lightGradient);
+    
+    /*nav*/
+    --bgNavExtension: var(--neutral0);
+
+    /*switch mode*/
+    --bgSwitchMode: var(--neutral100);
+
+    /*states*/
+    --bgStateSelected: var(--red700);
+    --colorState: var(--neutral700);
+    --colorStateSelected: var(--neutral0);
+    --borderState: var(--neutral300);
+
+    --title: var(--neutral900);
+    /*extension*/
+    --nameExtension: var(--neutral800);
+    --textExtension: var(--neutral600);
+    --removeExtensionColor: var(--neutral700);
+    --bgCircle: var(--neutral0);
+    --borderBtnRemove: var(--neutral300);
+    --bgNoActive: var(--neutral300);
+    --bgIsActive: var(--red700);
+    --btnRemoveColor: var(--neutral900);
+
+    /*HOVER*/
+    --hoverBgSwitch: var(--neutral300);
+
+    --hoverBgState: var(--neutral0);
+
+    --hoverBgRemove: var(--red700);
+    --hoverColorRemove: var(--neutral100);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    font-family: 'Noto Sans',sans-serif;
+    background: var(--bgLightMode);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+body *, body *::before, body *::after {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+body.dark-mode{
+    --bgLightMode: var(--darkGradient);
+    --bgNavExtension: var(--neutral800);
+    --bgSwitchMode: var(--neutral700);
+    --title: var(--neutral0);
+    --colorState: var(--neutral0);
+    --btnRemoveColor: var(--neutral0);
+    --textExtension: var(--neutral300);
+    --borderBtnRemove: var(--neutral600);
+    --bgNoActive: var(--neutral600);
+
+    --colorStateSelected: var(--neutral900);
+    --bgStateSelected: var(--red500);
+    --bgIsActive: var(--red500);
+
+    --hoverBgSwitch: var(--neutral600);
+    --hoverBgState: var(--neutral600);
+    --hoverColorRemove: var(--neutral900);
+    --hoverBgRemove: var(--red500);
+}
+
+header,main{
+    width: 100%;
+    max-width: 1050px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0,0,0,.2);
+    background-color: var(--bgNavExtension);
+}
+
+.nav__logo{
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    width: 150px;
+}
+
+.nav__switch{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--bgSwitchMode);
+    transition: background-color .2s linear;
+    cursor: pointer;
+}
+
+.nav__switch:hover{
+    background-color: var(--hoverBgSwitch);
+}
+
+#icon-switch{
+    width: 15px;
+}
+
+
+.states{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1{
+        color: var(--title);    
+    }
+}
+
+.btn-state{
+    padding: .5rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    color: var(--colorState);
+    background-color: var(--bgNavExtension);
+    border: none;
+    box-shadow: 0 0 2px var(--neutral300);
+    transition: background-color .2s linear;
+    cursor: pointer;
+}
+
+.btn-state:hover{
+    background-color: var(--hoverBgState);
+}
+
+.btn-state.isSelected{
+    color: var(--colorStateSelected);
+    background-color: var(--bgStateSelected);
+}
+
+#all{
+    
+}
+
+#active{
+    margin: 0 .5rem;
+}
+
+main{
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.extension{
+    width: 100%;
+    max-width: 335px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 2px var(--neutral300);
+    background-color: var(--bgNavExtension);
+}
+
+.extension__info{
+    display: flex;
+    align-items: center;
+}
+
+.extension__info__icon{
+    width: 100px;
+    height: 100%;
+    display: flex;
+}
+
+.extension__info__icon img{
+    width: 80%;
+}
+
+.extension__info__text{
+    display: flex;
+    flex-direction: column;
+    margin-left: .5rem;
+}
+
+.name{
+    color: var(--title);
+}
+
+.description{
+    font-size: .8rem;
+    line-height: 1rem;
+    color: var(--textExtension);
+}
+
+.extension__buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn-remove{
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    font-weight: 500;
+    border-radius: 30px;
+    border: 1.5px solid var(--borderBtnRemove);
+    color: var(--btnRemoveColor);
+    background-color: transparent;
+    transition: background-color .2s linear,color .2s linear;
+    cursor: pointer;
+}
+
+.btn-remove:hover{
+    color: var(--hoverColorRemove);
+    background-color: var(--hoverBgRemove);
+}
+
+.extension__buttons__switch{
+    width: 45px;
+    height: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 3px;
+    border-radius: 15px;
+    background-color: var(--bgNoActive);
+    cursor: pointer;
+}
+
+.extension__buttons__switch.isActive{
+    background-color: var(--bgIsActive);
+    justify-content: flex-end;
+}
+
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: var(--bgCircle);
+}
+
+@media screen and (min-width:768px){
+    .states{
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+
+    main{
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width:1024px){
+    .list{
+        justify-content: space-between;
+    }
+}
